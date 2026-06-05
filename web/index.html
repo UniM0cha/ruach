@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ruach · 루아흐</title>
+    <link rel="stylesheet" href="/src/style.css" />
+  </head>
+  <body>
+    <main id="app">
+      <header>
+        <h1>Ruach</h1>
+        <p class="tagline">수면 위를 운행하던 숨결</p>
+      </header>
+
+      <button id="talk" class="talk" data-state="idle">
+        <span class="orb"></span>
+        <span class="label">통화 시작</span>
+      </button>
+
+      <p id="status" class="status">대기 중</p>
+      <div id="transcript" class="transcript" aria-live="polite"></div>
+    </main>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

@@ -1,0 +1,105 @@
+:root {
+  --bg: #06121c;
+  --bg-2: #0b2233;
+  --mist: #cfe6f0;
+  --ink: #e8f4f8;
+  --muted: #6f93a6;
+  --accent: #4fd1c5;
+  --accent-2: #3b82a6;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  height: 100%;
+  background:
+    radial-gradient(1200px 800px at 50% -10%, var(--bg-2), transparent 60%),
+    var(--bg);
+  color: var(--ink);
+  font-family: ui-sans-serif, system-ui, -apple-system, "Pretendard", sans-serif;
+}
+
+#app {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  padding: 2rem;
+  text-align: center;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 3rem;
+  font-weight: 300;
+  letter-spacing: 0.08em;
+}
+
+.tagline {
+  margin: 0.25rem 0 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+  letter-spacing: 0.04em;
+}
+
+.talk {
+  position: relative;
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  border: 1px solid rgba(79, 209, 197, 0.35);
+  background: rgba(11, 34, 51, 0.6);
+  color: var(--ink);
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  gap: 0.5rem;
+  transition: transform 0.2s ease, border-color 0.3s ease;
+}
+.talk:hover { transform: scale(1.02); border-color: var(--accent); }
+.talk .label { font-size: 1rem; letter-spacing: 0.05em; }
+
+.orb {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: radial-gradient(circle at 50% 40%, rgba(79, 209, 197, 0.25), transparent 65%);
+  opacity: 0.5;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  pointer-events: none;
+}
+
+/* 연결됨 / 말하는 중 — 숨결처럼 천천히 맥동 */
+.talk[data-state="live"] .orb { opacity: 1; animation: breathe 3.2s ease-in-out infinite; }
+.talk[data-state="connecting"] .orb { opacity: 0.8; animation: breathe 1.2s ease-in-out infinite; }
+
+@keyframes breathe {
+  0%, 100% { transform: scale(0.9); opacity: 0.5; }
+  50%      { transform: scale(1.15); opacity: 1; }
+}
+
+.status {
+  color: var(--muted);
+  font-size: 0.9rem;
+  min-height: 1.2em;
+  margin: 0;
+}
+
+.transcript {
+  width: min(680px, 92vw);
+  max-height: 40vh;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+  text-align: left;
+}
+
+.line { padding: 0.6rem 0.9rem; border-radius: 0.8rem; line-height: 1.45; }
+.line.user { align-self: flex-end; background: rgba(59, 130, 166, 0.25); }
+.line.ruach { align-self: flex-start; background: rgba(79, 209, 197, 0.12); color: var(--mist); }
+.line .who { display: block; font-size: 0.7rem; color: var(--muted); margin-bottom: 0.15rem; }

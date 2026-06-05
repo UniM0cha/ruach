@@ -1,0 +1,14 @@
+{
+  "name": "ruach",
+  "version": "0.0.1",
+  "private": true,
+  "description": "수면 위를 운행하던 숨결이 목소리가 되는 음성 에이전트.",
+  "workspaces": [
+    "server",
+    "web"
+  ],
+  "scripts": {
+    "dev:server": "npm run dev --workspace server",
+    "dev:web": "npm run dev --workspace web"
+  }
+}
