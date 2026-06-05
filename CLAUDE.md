@@ -45,6 +45,6 @@ npm run dev:web      # :5173 web (/api → 백엔드 프록시)
 ## 로드맵
 
 - **M1** ✅ 음성 통화 + SOUL 페르소나 + 데모 툴(`get_current_time`, `remember`)
-- **M2** 두뇌·기억 — 툴 레지스트리/세션 영속화. **핵심 결정**: 툴·메모리를 TS로 새로 짤지 vs 기존 Hermes에 위임할지 vs 하이브리드.
+- **M2** 두뇌 코어 — 툴 레지스트리/dispatch, 비동기 잡 엔진, 세션 영속화, 토큰 리프레시. **방향 확정: 하이브리드**(라이브=네이티브 TS, 무거운 작업=Hermes에 async 위임). Hermes 방법론 이식 상세 설계: [docs/HERMES-PORT.md](docs/HERMES-PORT.md).
 - **M3** 스킬 인덱스 + 장기 메모리(prefetch/sync)
 - **M4** 채널 확장(Discord 음성 / 전화)

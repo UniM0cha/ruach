@@ -65,10 +65,10 @@ ChatGPT 고급 음성 모드처럼 **사람과 실제로 대화하듯** 자연�
 
 ## 로드맵
 
-- **M1 — 살아있는 목소리** ⬅ *현재*
+- **M1 — 살아있는 목소리** ✅
   브라우저에서 Realtime speech-to-speech로 자연스럽게 대화. SOUL.md 페르소나 주입. 데모 툴 1개로 "대화 중 행동" 증명.
-- **M2 — 두뇌와 기억**
-  TS 툴 레지스트리(Hermes 스타일 self-register), 세션 영속화. *여기서 핵심 결정*: 툴을 TS로 새로 짤지(reimplement) vs 기존 Hermes에 위임할지(bridge) vs 하이브리드.
+- **M2 — 두뇌 코어** ⬅ *다음*
+  네이티브 TS 툴 레지스트리 + dispatch, 비동기 잡 엔진, 세션 영속화, 토큰 리프레시. 방향은 **하이브리드**로 확정(라이브=TS, 무거운 작업=Hermes에 async 위임). Hermes 방법론을 실시간에 이식하는 상세 설계: [docs/HERMES-PORT.md](docs/HERMES-PORT.md).
 - **M3 — 스킬과 메모리**
   SKILL.md 인덱스 주입, 장기 메모리 prefetch/sync.
 - **M4 — 채널 확장**
